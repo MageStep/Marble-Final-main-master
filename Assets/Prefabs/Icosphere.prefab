@@ -13,9 +13,11 @@ GameObject:
   - component: {fileID: 3202125091578114578}
   - component: {fileID: 3202125091578114579}
   - component: {fileID: 3202125091578114576}
+  - component: {fileID: 7969043864411177019}
+  - component: {fileID: 8203825953731070625}
   - component: {fileID: 3202125091578114582}
   - component: {fileID: 3202125091578114583}
-  - component: {fileID: 3202125091578114585}
+  - component: {fileID: 7474766253140217160}
   - component: {fileID: 3202125091578114584}
   m_Layer: 0
   m_Name: Icosphere
@@ -34058,6 +34060,36 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!114 &7969043864411177019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3202125091578114577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fa1703d98ed900498d8e8cff9660c13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  redWall: {fileID: 0}
+  canvas: {fileID: 0}
+  aud: {fileID: 0}
+  ding: {fileID: 8300000, guid: e6fb8db251f131f42a4d07cfd8a326ea, type: 3}
+--- !u!114 &8203825953731070625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3202125091578114577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7c89a39dae456b4e871ccfd7de2eddf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  step1: {fileID: 0}
+  step2: {fileID: 0}
 --- !u!114 &3202125091578114582
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34072,6 +34104,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dir: {x: 0, y: 0, z: 0}
   isGrounded: 1
+  startPosition: {x: 0, y: 0, z: 0}
+  resetPoint: 0
+  SceneActive: 0
+  ui: {fileID: 0}
   speed: 10
   jumpForce: 25
 --- !u!54 &3202125091578114583
@@ -34090,7 +34126,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &3202125091578114585
+--- !u!114 &7474766253140217160
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -34099,9 +34135,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3202125091578114577}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fb34cceffa2cf6448be1acece530ba8, type: 3}
+  m_Script: {fileID: 11500000, guid: 6c7e05ceff6b57e4e8943e29c5987c3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cam1: {fileID: 0}
+  cam2: {fileID: 0}
 --- !u!135 &3202125091578114584
 SphereCollider:
   m_ObjectHideFlags: 0

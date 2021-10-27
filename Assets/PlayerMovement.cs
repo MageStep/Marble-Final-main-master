@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerMovement : MonoBehaviour
@@ -21,6 +22,10 @@ public class PlayerMovement : MonoBehaviour
 
     public int SceneActive = 0;
 
+    public TextMeshProUGUI ui;
+
+    public bool jumpActive = false;
+
 
     [Tooltip("Speed multiplier for Horizontal and Vertical movement.")]
     [Range(5f,50f)]           // adds a slider for speed instead of number input
@@ -28,14 +33,19 @@ public class PlayerMovement : MonoBehaviour
 
     void Awake()
     {
-        DontDestroyOnLoad(this.gameObject);
+        //DontDestroyOnLoad(this.gameObject);
     }
 
 
     void Start()
     {
         rb = this.GetComponent<Rigidbody>();
-        startPosition = GameObject.Find("StartPos").transform.position;
+        if(SceneActive == 0)
+        {
+            PlayerPrefs.SetInt("Coins", 0);
+        }
+        coins = PlayerPrefs.GetInt("Coins");
+        //startPosition = GameObject.Find("StartPos").transform.position;
         
         //this.transform.position = startPosition;
         //rb.velocity = Vector3.zero;
@@ -55,6 +65,9 @@ public class PlayerMovement : MonoBehaviour
                 ResetPlayer(); 
             }
         }
+
+        ui.text = "Coins: " + coins;
+
     }
 
     void FixedUpdate()
@@ -75,7 +88,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Jump()
     {
-        if(isGrounded)
+        if(isGrounded && jumpActive)
         {
         rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
@@ -88,7 +101,8 @@ public class PlayerMovement : MonoBehaviour
 
     public void SetPlayer()
     {
-        this.transform.position = startPosition;
+        SceneManager.UnloadScene("Level 1");
+        SceneManager.LoadScene("Level 1");
     }
 
     void OnTriggerEnter(Collider other)
@@ -107,6 +121,27 @@ public class PlayerMovement : MonoBehaviour
         {
             Destroy(other.gameObject);
             coins++;
+        }
+
+        if(other.gameObject.CompareTag("Jumper"))
+        {
+            jumpActive = true;
+            Destroy(other.gameObject);
+        }
+
+        if(other.gameObject.CompareTag("EndScene"))
+        {
+            PlayerPrefs.SetInt("Coins", coins);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            //PlayerMovement player = GameObject.Find("Icosphere").GetComponent<PlayerMovement>();
+            //player.startPosition = GameObject.Find("StartPos").transform.position;
+            //player.SetPlayer();
+            SceneActive++;
+            if(SceneActive == 7)
+            {
+                PlayerPrefs.SetInt("Coins", 0);
+            }
+
         }
     }
 
