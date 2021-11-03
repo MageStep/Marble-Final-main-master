@@ -29,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Tooltip("Speed multiplier for Horizontal and Vertical movement.")]
     [Range(5f,50f)]           // adds a slider for speed instead of number input
-    public float speed = 10, jumpForce = 5;
+    public float speed = 10, jumpForce = 5, dashForce = 10f;
 
     void Awake()
     {
@@ -94,6 +94,28 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public void Dash()
+    {
+        if(canDash)
+        {
+            //add cooldown
+            //optionally, cancel out velocity to move in new direction
+            //rb.velocity = Vector3.zero;
+            rb.AddForce(dir * dashForce, ForceMode.Impulse);
+            StartCoroutine(Wait());
+        }
+        
+    }
+
+    bool canDash = true;
+
+    IEnumerator Wait( float waitTime = 1f)
+    {
+        canDash = false;
+        yield return new WaitForSeconds(waitTime);
+        canDash = true;
+    }
+
     void ResetPlayer()
     {
         SceneManager.LoadScene("Level 1");
@@ -101,7 +123,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void SetPlayer()
     {
-        SceneManager.UnloadScene("Level 1");
+        SceneManager.UnloadSceneAsync("Level 1");
         SceneManager.LoadScene("Level 1");
     }
 
