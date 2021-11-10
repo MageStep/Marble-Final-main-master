@@ -34108,8 +34108,10 @@ MonoBehaviour:
   resetPoint: 0
   SceneActive: 0
   ui: {fileID: 0}
+  jumpActive: 0
   speed: 10
   jumpForce: 25
+  dashForce: 10
 --- !u!54 &3202125091578114583
 Rigidbody:
   m_ObjectHideFlags: 0
