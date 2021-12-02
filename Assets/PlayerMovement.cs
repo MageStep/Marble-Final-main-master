@@ -66,7 +66,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        ui.text = "Coins: " + coins;
+        //ui.text = "Coins: " + coins;
 
     }
 

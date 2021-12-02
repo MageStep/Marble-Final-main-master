@@ -17,7 +17,7 @@ public class InputManager : MonoBehaviour
     {
         if(player == null)
         {
-            player = GameObject.Find("Icosphere").GetComponent<PlayerMovement>();
+            player = GameObject.Find("Sphere").GetComponent<PlayerMovement>();
         }
 
         if(pauseMenu == null) pauseMenu = GameObject.Find("PauseMenu");

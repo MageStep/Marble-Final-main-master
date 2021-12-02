@@ -11,6 +11,7 @@ TagManager:
   - Hole
   - Coin
   - Jumper
+  - Wood
   layers:
   - Default
   - TransparentFX
