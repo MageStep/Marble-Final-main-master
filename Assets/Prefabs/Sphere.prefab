@@ -139,8 +139,9 @@ MonoBehaviour:
   SceneActive: 0
   ui: {fileID: 0}
   jumpActive: 0
-  sound: {fileID: 0}
-  winFX: {fileID: 0}
+  sound: {fileID: 209234069}
+  winFX: {fileID: 8300000, guid: 69a6e071f2c02f54eae7612a12557416, type: 3}
+  coinPickup: {fileID: 0}
   speed: 23
   jumpForce: 25
   dashForce: 10
@@ -288,7 +289,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d0057e8fb1bfe4a4e9653294c6c54d12, type: 2}
+  - {fileID: 2100000, guid: 8e1354b8440e7234095889f3b44f9687, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -309,18 +310,27 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 0.5
+  m_Time: 0.4
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.1
+    widthMultiplier: 0.45
     widthCurve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
         time: 0
         value: 1
-        inSlope: 0
-        outSlope: 0
+        inSlope: -0.062026862
+        outSlope: -0.062026862
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.19470072
+      - serializedVersion: 3
+        time: 0.6014294
+        value: 0.32999524
+        inSlope: -1.7964367
+        outSlope: -1.7964367
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
@@ -486,4 +496,4 @@ MonoBehaviour:
   redWall: {fileID: 0}
   canvas: {fileID: 0}
   aud: {fileID: 1065066111}
-  ding: {fileID: 8300000, guid: e6fb8db251f131f42a4d07cfd8a326ea, type: 3}
+  ding: {fileID: 8300000, guid: dafa96ce6a084bb498bc96bd61e470f0, type: 3}

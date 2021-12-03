@@ -6720,6 +6720,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1065066112, guid: 36a08b0381f6df641bc4bbf5201da8bf, type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 9051427}
     - target: {fileID: 2783199544783115745, guid: 36a08b0381f6df641bc4bbf5201da8bf, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -7875,7 +7879,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Collect that yellow powerup to jump using space. Try it out to beat this
+  m_text: Collect that blue powerup to jump using space. Try it out to beat this
     level!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

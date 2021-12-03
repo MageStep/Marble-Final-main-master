@@ -29998,6 +29998,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: dafa96ce6a084bb498bc96bd61e470f0, type: 3}
     - target: {fileID: 1065066112, guid: 36a08b0381f6df641bc4bbf5201da8bf, type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 1886686333}
+    - target: {fileID: 1065066112, guid: 36a08b0381f6df641bc4bbf5201da8bf, type: 3}
       propertyPath: redWall
       value: 
       objectReference: {fileID: 1285649075}

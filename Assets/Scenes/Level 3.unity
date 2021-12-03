@@ -8617,6 +8617,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Step 1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1260469400472015792, guid: dfb39604b6981174f8d0673736cc1f0c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1260469400472015798, guid: dfb39604b6981174f8d0673736cc1f0c, type: 3}
       propertyPath: m_text
       value: 

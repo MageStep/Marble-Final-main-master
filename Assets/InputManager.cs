@@ -52,7 +52,7 @@ public class InputManager : MonoBehaviour
             if(Input.GetKeyDown(KeyCode.Q))
             {
                 Application.Quit();
-                UnityEditor.EditorApplication.isPlaying = false;
+                
             }
         }
 
