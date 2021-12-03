@@ -6,11 +6,13 @@ using UnityEngine.SceneManagement;
 public class FallRestart : MonoBehaviour
 {
 
+    PlayerMovement player;
+
     public int resetPoint;
     // Start is called before the first frame update
     void Start()
     {
-        
+        player = this.GetComponent<PlayerMovement>();
     }
 
     // Update is called once per frame
@@ -18,7 +20,9 @@ public class FallRestart : MonoBehaviour
     {
         if(this.transform.position.y < resetPoint)
         {
+            player.coins = 0;
             SceneManager.LoadScene("Level 1");
+        
         }
     }
 }

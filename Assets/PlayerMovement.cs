@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
 
     public bool isGrounded = false;
 
-    int coins = 0;
+    public int coins = 0;
 
     public Vector3 startPosition;
 
@@ -25,6 +25,11 @@ public class PlayerMovement : MonoBehaviour
     public TextMeshProUGUI ui;
 
     public bool jumpActive = false;
+
+    public AudioSource sound;
+
+    public AudioClip winFX;
+    public AudioClip coinPickup;
 
 
     [Tooltip("Speed multiplier for Horizontal and Vertical movement.")]
@@ -40,11 +45,9 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb = this.GetComponent<Rigidbody>();
-        if(SceneActive == 0)
-        {
-            PlayerPrefs.SetInt("Coins", 0);
-        }
         coins = PlayerPrefs.GetInt("Coins");
+
+        ui.text = "Coins found: " + coins;
         //startPosition = GameObject.Find("StartPos").transform.position;
         
         //this.transform.position = startPosition;
@@ -66,7 +69,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        //ui.text = "Coins: " + coins;
+        ui.text = "Coins found: " + coins;
 
     }
 
@@ -143,6 +146,7 @@ public class PlayerMovement : MonoBehaviour
         {
             Destroy(other.gameObject);
             coins++;
+            sound.PlayOneShot(coinPickup);
         }
 
         if(other.gameObject.CompareTag("Jumper"))
@@ -154,15 +158,12 @@ public class PlayerMovement : MonoBehaviour
         if(other.gameObject.CompareTag("EndScene"))
         {
             PlayerPrefs.SetInt("Coins", coins);
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            StartCoroutine(WinLevel());
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             //PlayerMovement player = GameObject.Find("Icosphere").GetComponent<PlayerMovement>();
             //player.startPosition = GameObject.Find("StartPos").transform.position;
             //player.SetPlayer();
-            SceneActive++;
-            if(SceneActive == 7)
-            {
-                PlayerPrefs.SetInt("Coins", 0);
-            }
+            //GetComponent<AudioSource>().PlayOneShot(winFX);
 
         }
     }
@@ -173,6 +174,14 @@ public class PlayerMovement : MonoBehaviour
             {
                 isGrounded = false;
             }
+        }
+
+        IEnumerator WinLevel()
+        {
+            Debug.Log("You won!");
+            GetComponent<AudioSource>().PlayOneShot(winFX);
+            yield return new WaitForSeconds(1.5f);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
 
     //create a function to move

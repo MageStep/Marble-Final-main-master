@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class MenuToggle : MonoBehaviour
 {
+
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -27,4 +29,6 @@ public class MenuToggle : MonoBehaviour
     {
         SceneManager.LoadScene("LevelSelect");
     }
+
+
 }
